@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  # 1. Base de données MySQL
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: demo_db
+    ports:
+      - "3307:3306" # On utilise 3307 sur ton PC pour éviter les conflits
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - spring-network
+
+  # 2. Ton application Spring Boot
+  spring-app:
+    build: .  # Construit l'image à partir de ton Dockerfile local
+    container_name: spring-app
+    depends_on:
+      - mysql-db # Attend que MySQL soit prêt avant de démarrer l'app
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/demo_db?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    ports:
+      - "8081:8080" # Accessible sur ton PC via http://localhost:8081
+    networks:
+      - spring-network
+
+  # 3. phpMyAdmin pour gérer visuellement MySQL
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    depends_on:
+      - mysql-db
+    environment:
+      PMA_HOST: mysql-db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8082:80" # Accessible sur http://localhost:8082
+    networks:
+      - spring-network
+
+networks:
+  spring-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
