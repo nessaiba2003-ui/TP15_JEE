@@ -32,3 +32,6 @@ Conclusion : Ce projet valide la compétence de déploiement "Cloud-ready" en s�
 <img width="1919" height="1010" alt="Screenshot 2026-03-28 192055" src="https://github.com/user-attachments/assets/f8d60dcc-747a-4f0b-955a-ab29fdc729ba" />
 <img width="1905" height="558" alt="Screenshot 2026-03-28 192344" src="https://github.com/user-attachments/assets/b74bbfcc-2415-4b7c-afff-361dda05bdad" />
 <img width="1415" height="677" alt="Screenshot 2026-03-28 192351" src="https://github.com/user-attachments/assets/2e167211-04a1-49ae-8499-dbce4bfcf7f5" />
+<img width="1539" height="612" alt="Screenshot 2026-03-30 094734" src="https://github.com/user-attachments/assets/7591add2-f09e-457c-9e1e-f250b03c045f" />
+<img width="1514" height="634" alt="Screenshot 2026-03-30 094750" src="https://github.com/user-attachments/assets/81388bfe-af07-48f9-a811-b448daff427c" />
+<img width="1527" height="654" alt="Screenshot 2026-03-30 094827" src="https://github.com/user-attachments/assets/abe0b652-9e56-4055-8e61-324107283086" />
